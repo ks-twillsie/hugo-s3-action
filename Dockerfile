@@ -1,8 +1,6 @@
-FROM pahud/awscli-v2:node-lts
+FROM pahud/awscli:with-bash
 
-RUN yum update -y && \
-    yum install -y curl jq
+RUN apt update && apt install -y \
+    curl jq
 
 COPY entrypoint.sh /
-
-ENTRYPOINT ["/entrypoint.sh"]
